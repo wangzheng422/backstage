@@ -22,7 +22,7 @@
 <script src="/js/medium-zoom.js"></script>
 <script src="/js/dismissable-banner.js"></script>
 <script src="/js/scroll-nav-to-view-in-docs.js"></script><link rel="stylesheet" href="/assets/css/styles.f70dec51.css">
-<script src="/assets/js/runtime~main.737ebd5e.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.845d83cf.js" defer="defer"></script>
 <script src="/assets/js/main.32189ff5.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -84,6 +84,9 @@ values from configurations with lower priority.</li>
 contents.</li>
 <li>Objects are merged together deeply, meaning that if any of the included
 configs contain a value for a given path, it will be found.</li>
+<li>A <code>null</code> value in a config file will be treated as an explicit absence of
+configuration. This means that the reading will not fall back to a lower priority
+config, but it will still be treated as if the configuration was not present.</li>
 </ul>
 <p>The priority of the configurations is determined by the following rules, in
 order:</p>
