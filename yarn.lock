@@ -3589,6 +3589,7 @@ __metadata:
     "@backstage/cli": "workspace:^"
     "@backstage/errors": "workspace:^"
     cross-fetch: ^4.0.0
+    dataloader: ^2.0.0
     msw: ^1.0.0
     uri-template: ^2.0.0
   languageName: unknown
