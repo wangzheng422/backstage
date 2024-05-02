@@ -17,7 +17,6 @@
 import {
   CacheManager,
   createServiceBuilder,
-  DockerContainerRunner,
   HostDiscovery,
   UrlReader,
 } from '@backstage/backend-common';
@@ -29,7 +28,6 @@ import {
   Publisher,
   TechdocsGenerator,
 } from '@backstage/plugin-techdocs-node';
-import Docker from 'dockerode';
 import { Server } from 'http';
 import { Logger } from 'winston';
 import { createRouter } from './router';
@@ -66,13 +64,9 @@ export async function startStandaloneServer(
   });
   preparers.register('dir', directoryPreparer);
 
-  const dockerClient = new Docker();
-  const containerRunner = new DockerContainerRunner({ dockerClient });
-
   const generators = new Generators();
   const techdocsGenerator = TechdocsGenerator.fromConfig(config, {
     logger,
-    containerRunner,
   });
   generators.register('techdocs', techdocsGenerator);
 
