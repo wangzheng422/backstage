@@ -23,7 +23,7 @@
 <script src="/js/medium-zoom.js"></script>
 <script src="/js/dismissable-banner.js"></script>
 <script src="/js/scroll-nav-to-view-in-docs.js"></script><link rel="stylesheet" href="/assets/css/styles.d4d13622.css">
-<script src="/assets/js/runtime~main.0e0a7bf6.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.68175298.js" defer="defer"></script>
 <script src="/assets/js/main.63e20dff.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -40,20 +40,16 @@ powered by the backend rather than frontend code. This means that the catalog
 backend needs to be supplied with a location analyzer for this use case to
 continue to function.</p>
 <p>If you want to make use of this feature, check out the installation instructions
-in <a href="https://github.com/backstage/backstage/blob/master/plugins/catalog-import/CHANGELOG.md#090" target="_blank" rel="noopener noreferrer">the
-changelog</a>.</p>
+in <a href="https://github.com/backstage/backstage/blob/master/plugins/catalog-import/CHANGELOG.md#090" target="_blank" rel="noopener noreferrer">the changelog</a>.</p>
 <p>Contributed by <a href="https://github.com/kissmikijr" target="_blank" rel="noopener noreferrer">@kissmikijr</a> in
 <a href="https://github.com/backstage/backstage/pull/13800" target="_blank" rel="noopener noreferrer">#13800</a></p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="permission-rule-changes">Permission Rule Changes<a href="#permission-rule-changes" class="hash-link" aria-label="Direct link to Permission Rule Changes" title="Direct link to Permission Rule Changes">​</a></h3>
-<p>When defining permission rules, it&#x27;s now necessary to provide a <a href="https://github.com/colinhacks/zod" target="_blank" rel="noopener noreferrer">Zod
-Schema</a> that specifies the parameters the
+<p>When defining permission rules, it&#x27;s now necessary to provide a <a href="https://github.com/colinhacks/zod" target="_blank" rel="noopener noreferrer">Zod Schema</a> that specifies the parameters the
 rule expects. This has been added to help better describe the parameters in the
 response of the metadata endpoint and to validate the parameters before a rule
 is executed. The signatures of the rule methods (<code>apply</code> and <code>toQuery</code>) have
 changed slightly as well.</p>
-<p>You can read more about this in <a href="https://backstage.io/docs/permissions/overview" target="_blank" rel="noopener noreferrer">the permissions
-documentation</a> and <a href="https://github.com/backstage/backstage/blob/master/plugins/permission-node/CHANGELOG.md#070" target="_blank" rel="noopener noreferrer">the
-changelog</a>.</p>
+<p>You can read more about this in <a href="https://backstage.io/docs/permissions/overview" target="_blank" rel="noopener noreferrer">the permissions documentation</a> and <a href="https://github.com/backstage/backstage/blob/master/plugins/permission-node/CHANGELOG.md#070" target="_blank" rel="noopener noreferrer">the changelog</a>.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="migration-jest-v29">Migration: <code>jest</code> v29<a href="#migration-jest-v29" class="hash-link" aria-label="Direct link to migration-jest-v29" title="Direct link to migration-jest-v29">​</a></h3>
 <p>Both <code>jest</code>, <code>jest-runtime</code>, and <code>jest-environment-jsdom</code> as used by the
 Backstage CLI were bumped to version 29. This is up from version 27, so check
@@ -73,8 +69,7 @@ now objects with a <code>detail</code> property rather than a string.</li>
 <code>react-router</code>, just like the main repository does.</p>
 <p>Migrating to the stable version of <code>react-router</code> is optional for the time
 being; Backstage has support for both versions. But if you want to do the same
-for your existing repository, please follow <a href="https://backstage.io/docs/tutorials/react-router-stable-migration" target="_blank" rel="noopener noreferrer">this
-guide</a>.
+for your existing repository, please follow <a href="https://backstage.io/docs/tutorials/react-router-stable-migration" target="_blank" rel="noopener noreferrer">this guide</a>.
 Support for the beta version will be removed in a later release.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="support-for-__mocks__-and-__testutils__-directories">Support for <code>__mocks__</code> and <code>__testUtils__</code> directories<a href="#support-for-__mocks__-and-__testutils__-directories" class="hash-link" aria-label="Direct link to support-for-__mocks__-and-__testutils__-directories" title="Direct link to support-for-__mocks__-and-__testutils__-directories">​</a></h3>
 <p>The Backstage CLI now has built-in support for <code>__mocks__</code> and <code>__testUtils__</code>
@@ -97,18 +92,15 @@ depending on which product you use.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="upgrade-path">Upgrade path<a href="#upgrade-path" class="hash-link" aria-label="Direct link to Upgrade path" title="Direct link to Upgrade path">​</a></h2>
 <p>We recommend that you keep your Backstage project up to date with this latest
 release. For more guidance on how to upgrade, check out the documentation for
-<a href="https://backstage.io/docs/getting-started/keeping-backstage-updated" target="_blank" rel="noopener noreferrer">keeping Backstage
-updated</a>.</p>
+<a href="https://backstage.io/docs/getting-started/keeping-backstage-updated" target="_blank" rel="noopener noreferrer">keeping Backstage updated</a>.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="links-and-references">Links and References<a href="#links-and-references" class="hash-link" aria-label="Direct link to Links and References" title="Direct link to Links and References">​</a></h2>
 <p>Below you can find a list of links and references to help you learn about and
 start using this new release.</p>
 <ul>
 <li><a href="https://backstage.io/" target="_blank" rel="noopener noreferrer">Backstage official website</a>,
-<a href="https://backstage.io/docs/" target="_blank" rel="noopener noreferrer">documentation</a>, and <a href="https://backstage.io/docs/getting-started/" target="_blank" rel="noopener noreferrer">getting started
-guide</a></li>
+<a href="https://backstage.io/docs/" target="_blank" rel="noopener noreferrer">documentation</a>, and <a href="https://backstage.io/docs/getting-started/" target="_blank" rel="noopener noreferrer">getting started guide</a></li>
 <li><a href="https://github.com/backstage/backstage" target="_blank" rel="noopener noreferrer">GitHub repository</a></li>
-<li>Backstage&#x27;s <a href="https://backstage.io/docs/overview/versioning-policy" target="_blank" rel="noopener noreferrer">versioning and support
-policy</a></li>
+<li>Backstage&#x27;s <a href="https://backstage.io/docs/overview/versioning-policy" target="_blank" rel="noopener noreferrer">versioning and support policy</a></li>
 <li><a href="https://discord.gg/backstage-687207715902193673" target="_blank" rel="noopener noreferrer">Community Discord</a> for discussions and support</li>
 <li><a href="https://github.com/backstage/backstage/tree/master/docs/releases/v1.7.0-changelog.md" target="_blank" rel="noopener noreferrer">Changelog</a></li>
 <li>Backstage <a href="https://backstage.io/demos" target="_blank" rel="noopener noreferrer">Demos</a>,
