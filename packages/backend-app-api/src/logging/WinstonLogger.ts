@@ -16,6 +16,7 @@
 
 import {
   LoggerService,
+  RedactionsService,
   RootLoggerService,
 } from '@backstage/backend-plugin-api';
 import { JsonObject } from '@backstage/types';
@@ -37,6 +38,7 @@ export interface WinstonLoggerOptions {
   level?: string;
   format?: Format;
   transports?: Transport[];
+  redactions?: RedactionsService;
 }
 
 /**
@@ -46,24 +48,33 @@ export interface WinstonLoggerOptions {
  */
 export class WinstonLogger implements RootLoggerService {
   #winston: Logger;
-  #addRedactions?: (redactions: Iterable<string>) => void;
+  #redactions?: RedactionsService;
 
   /**
    * Creates a {@link WinstonLogger} instance.
    */
   static create(options: WinstonLoggerOptions): WinstonLogger {
-    const redacter = WinstonLogger.redacter();
     const defaultFormatter =
       process.env.NODE_ENV === 'production'
         ? format.json()
         : WinstonLogger.colorFormat();
 
+    const formats = [];
+
+    const { redactions } = options;
+    if (redactions) {
+      formats.push(
+        WinstonLogger.recursiveTransformFormat(input =>
+          redactions.redact(input),
+        ),
+      );
+    }
+
+    formats.push(options.format ?? defaultFormatter);
+
     let logger = createLogger({
       level: process.env.LOG_LEVEL || options.level || 'info',
-      format: format.combine(
-        redacter.format,
-        options.format ?? defaultFormatter,
-      ),
+      format: format.combine(...formats),
       transports: options.transports ?? new transports.Console(),
     });
 
@@ -71,11 +82,32 @@ export class WinstonLogger implements RootLoggerService {
       logger = logger.child(options.meta);
     }
 
-    return new WinstonLogger(logger, redacter.add);
+    return new WinstonLogger(logger, options?.redactions);
+  }
+
+  static recursiveTransformFormat(
+    transformFunc: (input: string) => string,
+  ): Format {
+    const replace = (obj: TransformableInfo) => {
+      for (const key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          if (typeof obj[key] === 'object') {
+            obj[key] = replace(obj[key] as TransformableInfo);
+          } else if (typeof obj[key] === 'string') {
+            obj[key] = transformFunc(obj[key]);
+          }
+        }
+      }
+      return obj;
+    };
+
+    return format(replace)();
   }
 
   /**
    * Creates a winston log formatter for redacting secrets.
+   *
+   * @deprecated Use {@link WinstonLogger.recursiveTransformFormat} with {@link @backstage/backend-plugin-api#RedactionsService.redact} instead.
    */
   static redacter(): {
     format: Format;
@@ -98,7 +130,11 @@ export class WinstonLogger implements RootLoggerService {
       return obj;
     };
     return {
-      format: format(replace)(),
+      format: WinstonLogger.recursiveTransformFormat(input =>
+        redactionPattern
+          ? input.replace(redactionPattern, '[REDACTED]')
+          : input,
+      ),
       add(newRedactions) {
         let added = 0;
         for (const redactionToTrim of newRedactions) {
@@ -161,12 +197,9 @@ export class WinstonLogger implements RootLoggerService {
     );
   }
 
-  private constructor(
-    winston: Logger,
-    addRedactions?: (redactions: Iterable<string>) => void,
-  ) {
+  private constructor(winston: Logger, redaction?: RedactionsService) {
     this.#winston = winston;
-    this.#addRedactions = addRedactions;
+    this.#redactions = redaction;
   }
 
   error(message: string, meta?: JsonObject): void {
@@ -189,7 +222,10 @@ export class WinstonLogger implements RootLoggerService {
     return new WinstonLogger(this.#winston.child(meta));
   }
 
+  /**
+   * @deprecated Use {@link @backstage/backend-plugin-api#RedactionsService.addRedactions} instead.
+   */
   addRedactions(redactions: Iterable<string>) {
-    this.#addRedactions?.(redactions);
+    this.#redactions?.addRedactions(redactions);
   }
 }

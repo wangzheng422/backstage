@@ -35,6 +35,7 @@ import {
   authServiceFactory,
   httpAuthServiceFactory,
   userInfoServiceFactory,
+  redactionsServiceFactory,
 } from '@backstage/backend-app-api';
 import { eventsServiceFactory } from '@backstage/plugin-events-node';
 
@@ -50,6 +51,7 @@ export const defaultServiceFactories = [
   lifecycleServiceFactory(),
   loggerServiceFactory(),
   permissionsServiceFactory(),
+  redactionsServiceFactory(),
   rootHttpRouterServiceFactory(),
   rootLifecycleServiceFactory(),
   rootLoggerServiceFactory(),

@@ -198,6 +198,7 @@ export namespace coreServices {
   const logger: ServiceRef<LoggerService, 'plugin'>;
   const permissions: ServiceRef<PermissionsService, 'plugin'>;
   const pluginMetadata: ServiceRef<PluginMetadataService, 'plugin'>;
+  const redactions: ServiceRef<RedactionsService, 'root'>;
   const rootHttpRouter: ServiceRef<RootHttpRouterService, 'root'>;
   const rootLifecycle: ServiceRef<RootLifecycleService, 'root'>;
   const rootLogger: ServiceRef<RootLoggerService, 'root'>;
@@ -495,6 +496,12 @@ export type ReadUrlResponse = {
   etag?: string;
   lastModifiedAt?: Date;
 };
+
+// @public
+export interface RedactionsService {
+  addRedactions(redactions: Iterable<string>): void;
+  redact(input: string): string;
+}
 
 // @public (undocumented)
 export interface RootConfigService extends Config {}
