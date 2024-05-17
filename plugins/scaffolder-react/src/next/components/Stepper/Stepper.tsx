@@ -229,6 +229,8 @@ export const Stepper = (stepperProps: StepperProps) => {
             uiSchema={currentStep.uiSchema}
             onSubmit={handleNext}
             fields={fields}
+            omitExtraData
+            liveOmit
             showErrorList="top"
             templates={{ ErrorListTemplate }}
             onChange={handleChange}
