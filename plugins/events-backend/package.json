@@ -61,6 +61,7 @@
     "winston": "^3.2.1"
   },
   "devDependencies": {
+    "@backstage/backend-app-api": "workspace:^",
     "@backstage/backend-common": "workspace:^",
     "@backstage/backend-defaults": "workspace:^",
     "@backstage/backend-test-utils": "workspace:^",
