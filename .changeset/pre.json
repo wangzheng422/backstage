@@ -181,7 +181,8 @@
     "@backstage/plugin-techdocs-node": "1.12.4",
     "@backstage/plugin-techdocs-react": "1.2.4",
     "@backstage/plugin-user-settings": "0.8.6",
-    "@backstage/plugin-user-settings-backend": "0.2.17"
+    "@backstage/plugin-user-settings-backend": "0.2.17",
+    "yarn-plugin-backstage": "0.0.0"
   },
   "changesets": [
     "beige-eagles-cheat",
@@ -207,9 +208,11 @@
     "empty-tables-ring",
     "famous-monkeys-count",
     "forty-adults-roll",
+    "forty-experts-live",
     "four-adults-mix",
     "friendly-keys-fold",
     "gentle-baboons-peel",
+    "gentle-llamas-cross",
     "gold-teachers-wink",
     "great-cougars-guess",
     "green-apricots-invite",
@@ -241,6 +244,7 @@
     "polite-otters-talk",
     "popular-carrots-love",
     "pretty-berries-live",
+    "pretty-spoons-knock",
     "proud-readers-move",
     "real-ghosts-return",
     "rich-teachers-agree",
@@ -260,6 +264,7 @@
     "strong-moose-work",
     "stupid-tigers-bake",
     "swift-islands-leave",
+    "tall-bananas-reflect",
     "tall-lies-fetch",
     "tall-pumas-teach",
     "tender-seas-listen",

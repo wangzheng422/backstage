@@ -1,5 +1,11 @@
 # @backstage/core-components
 
+## 0.14.8-next.2
+
+### Patch Changes
+
+- 59cee81: Use `inherit` variant on OverflowTooltip underlying Typography component.
+
 ## 0.14.8-next.1
 
 ### Patch Changes

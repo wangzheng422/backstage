@@ -1,5 +1,14 @@
 # @backstage/plugin-scaffolder-react
 
+## 1.8.7-next.3
+
+### Patch Changes
+
+- fa8560e: Prevents Autocomplete dropdown from overlapping sidebar on hovering it
+- Updated dependencies
+  - @backstage/core-components@0.14.8-next.2
+  - @backstage/plugin-catalog-react@1.12.1-next.2
+
 ## 1.8.7-next.2
 
 ### Patch Changes

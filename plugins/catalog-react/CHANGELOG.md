@@ -1,5 +1,15 @@
 # @backstage/plugin-catalog-react
 
+## 1.12.1-next.2
+
+### Patch Changes
+
+- fa8560e: Prevents Autocomplete dropdown from overlapping sidebar on hovering it
+- Updated dependencies
+  - @backstage/core-components@0.14.8-next.2
+  - @backstage/frontend-plugin-api@0.6.6-next.2
+  - @backstage/integration-react@1.1.28-next.0
+
 ## 1.12.1-next.1
 
 ### Patch Changes
