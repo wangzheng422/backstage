@@ -1,5 +1,5 @@
 {
-  "name": "@backstage/plugin-catalog-backend-module-msgraph",
+  "name": "@wangzheng422/plugin-catalog-backend-module-msgraph",
   "version": "0.5.26",
   "description": "A Backstage catalog backend module that helps integrate towards Microsoft Graph",
   "backstage": {
@@ -14,7 +14,7 @@
   "homepage": "https://backstage.io",
   "repository": {
     "type": "git",
-    "url": "https://github.com/backstage/backstage",
+    "url": "https://github.com/wangzheng422/backstage",
     "directory": "plugins/catalog-backend-module-msgraph"
   },
   "license": "Apache-2.0",

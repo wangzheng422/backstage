@@ -24,7 +24,7 @@ import {
   GroupTransformer,
   OrganizationTransformer,
   UserTransformer,
-} from '@backstage/plugin-catalog-backend-module-msgraph';
+} from '@wangzheng422/plugin-catalog-backend-module-msgraph';
 import { MicrosoftGraphOrgEntityProvider } from '../processors';
 
 /**
